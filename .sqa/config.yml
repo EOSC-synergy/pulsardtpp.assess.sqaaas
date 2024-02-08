@@ -1,0 +1,42 @@
+config:
+  credentials: []
+  project_repos:
+    github.com/EOSC-synergy/sqaaas-tooling:
+      branch: release/2.0.0
+      repo: https://github.com/EOSC-synergy/sqaaas-tooling
+    gitlab.com/ml-ppa/pulsardtpp:
+      branch: main
+      repo: https://gitlab.com/ml-ppa/pulsardtpp
+environment:
+  JPL_DOCKERFORCEBUILD: enabled
+  JPL_KEEPGOING: enabled
+sqa_criteria:
+  QC.Acc:
+    repos:
+      gitlab.com/ml-ppa/pulsardtpp git:
+        commands:
+        - /usr/bin/env sh .sqa/script.sloppy-ruby-butterfly.sh
+        container: qc.acc_scaly-charcoal-blue
+  QC.Doc:
+    repos:
+      gitlab.com/ml-ppa/pulsardtpp find_doc_files.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.cozy-bronze-chow.sh
+        container: qc.doc_cheeky-lavender-shrimp
+      gitlab.com/ml-ppa/pulsardtpp git:
+        commands:
+        - /usr/bin/env sh .sqa/script.surly-orange-earwig.sh
+        container: qc.doc_cozy-beige-alligator
+  QC.Lic:
+    repos:
+      gitlab.com/ml-ppa/pulsardtpp licensee:
+        commands:
+        - /usr/bin/env sh .sqa/script.muggy-taupe-yak.sh
+        container: qc.lic_lanky-lilac-shrimp
+  QC.Ver:
+    repos:
+      gitlab.com/ml-ppa/pulsardtpp get_git_tags.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.chewy-goldenrod-stingray.sh
+        container: qc.ver_scummy-flax-uguisu
+timeout: 5400
