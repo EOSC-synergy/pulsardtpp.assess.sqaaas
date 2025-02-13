@@ -5,5 +5,5 @@
 
 (
 cd gitlab.com/ml-ppa/pulsardtpp &&
-    git rev-parse --is-inside-work-tree
+    pytest  --json-report  --json-report-indent 4
 )

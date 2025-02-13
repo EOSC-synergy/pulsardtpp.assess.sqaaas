@@ -2,7 +2,7 @@ config:
   credentials: []
   project_repos:
     github.com/EOSC-synergy/sqaaas-tooling:
-      branch: release/2.0.0
+      branch: main
       repo: https://github.com/EOSC-synergy/sqaaas-tooling
     gitlab.com/ml-ppa/pulsardtpp:
       branch: main
@@ -15,28 +15,54 @@ sqa_criteria:
     repos:
       gitlab.com/ml-ppa/pulsardtpp git:
         commands:
-        - /usr/bin/env sh .sqa/script.sloppy-ruby-butterfly.sh
-        container: qc.acc_scaly-charcoal-blue
+        - /usr/bin/env sh .sqa/script.beady-amethyst-bracke.sh
+        container: qc.acc_slaphappy-asparagus-abyssinian
   QC.Doc:
     repos:
       gitlab.com/ml-ppa/pulsardtpp find_doc_files.py:
         commands:
-        - /usr/bin/env sh .sqa/script.cozy-bronze-chow.sh
-        container: qc.doc_cheeky-lavender-shrimp
+        - /usr/bin/env sh .sqa/script.foggy-gold-russel.sh
+        container: qc.doc_scummy-rose-shark
       gitlab.com/ml-ppa/pulsardtpp git:
         commands:
-        - /usr/bin/env sh .sqa/script.surly-orange-earwig.sh
-        container: qc.doc_cozy-beige-alligator
+        - /usr/bin/env sh .sqa/script.paltry-ecru-capybara.sh
+        container: qc.doc_crappy-amaranth-fowl
+      gitlab.com/ml-ppa/pulsardtpp markdownlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.wimpy-purple-frog.sh
+        container: qc.doc_droopy-grey-urchin
   QC.Lic:
     repos:
       gitlab.com/ml-ppa/pulsardtpp licensee:
         commands:
-        - /usr/bin/env sh .sqa/script.muggy-taupe-yak.sh
-        container: qc.lic_lanky-lilac-shrimp
+        - /usr/bin/env sh .sqa/script.gloppy-jade-flamingo.sh
+        container: qc.lic_hazy-charcoal-tuatara
+  QC.Sec:
+    repos:
+      gitlab.com/ml-ppa/pulsardtpp bandit:
+        commands:
+        - /usr/bin/env sh .sqa/script.shaky-tomato-bordeaux.sh
+        container: qc.sec_bumpy-emerald-tarantula
+  QC.Sty:
+    repos:
+      gitlab.com/ml-ppa/pulsardtpp flake8:
+        commands:
+        - /usr/bin/env sh .sqa/script.lanky-blue-vulture.sh
+        container: qc.sty_paltry-mustard-newt
+      gitlab.com/ml-ppa/pulsardtpp oclint:
+        commands:
+        - /usr/bin/env sh .sqa/script.stinky-salmon-uakari.sh
+        container: qc.sty_dorky-aquamarine-barracuda
+  QC.Uni:
+    repos:
+      gitlab.com/ml-ppa/pulsardtpp pytest:
+        commands:
+        - /usr/bin/env sh .sqa/script.ugly-magenta-molly.sh
+        container: qc.uni_queasy-yellow-sheepdog
   QC.Ver:
     repos:
       gitlab.com/ml-ppa/pulsardtpp get_git_tags.py:
         commands:
-        - /usr/bin/env sh .sqa/script.chewy-goldenrod-stingray.sh
-        container: qc.ver_scummy-flax-uguisu
+        - /usr/bin/env sh .sqa/script.thirsty-olivine-kiwi.sh
+        container: qc.ver_silly-magnolia-camel
 timeout: 5400
